@@ -18,7 +18,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 public class Login extends JFrame{
-	
+	Image img =new ImageIcon("./image/Mountain.jpg").getImage();
 	
  Login(){
 
@@ -145,6 +145,8 @@ public class Login extends JFrame{
 	 setSize(300,400);
 	 setVisible(true);
  }
-	
+	public void paint(Graphics g) {//그리는 함수
+		g.drawImage(img, 0, 0, null);//background를 그려줌
+}
 	
 }
