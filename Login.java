@@ -18,7 +18,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 public class Login extends JFrame{
-	Image img =new ImageIcon("./image/Mountain.jpg").getImage();
+	
 	
  Login(){
 
@@ -134,7 +134,18 @@ public class Login extends JFrame{
 			System.exit(0);
 		}
 	 });
+
+	 JButton b3=new JButton("관리");
+	 b3.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e) {
+				setVisible(false);
+				new Manager();
+				
+		}
+	 });
+	 
 	 q5.add(b2);
+	 q5.add(b3);
 	 c.setLayout(new FlowLayout());
 	 c.add(q1);
 	 c.add(im);
@@ -145,8 +156,6 @@ public class Login extends JFrame{
 	 setSize(300,400);
 	 setVisible(true);
  }
-	public void paint(Graphics g) {//그리는 함수
-		g.drawImage(img, 0, 0, null);//background를 그려줌
-}
+	
 	
 }
