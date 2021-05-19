@@ -16,8 +16,9 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 public class NewID extends JFrame{
-NewID(){
 
+String did1=null;
+NewID(){
 	setTitle("회원가입");
 	Container c= getContentPane();
 	JPanel jp= new JPanel();
@@ -71,6 +72,7 @@ NewID(){
 		    finally{
 		        // DB 연결을 종료한다.
 		    	if(!did.equals(id)) {
+		    		did1=id;
 					JOptionPane.showMessageDialog(null, "회원가입 할 수 있는 아이디 입니다","Message",JOptionPane.INFORMATION_MESSAGE);
 				}
 		        try{
@@ -136,7 +138,7 @@ NewID(){
 				}
 			
 			}
-			if(!did.equals(id)) {
+			if(!did.equals(id)&&id.equals(did1)) {
 		        pstm = conn.prepareStatement(sql);
 		    	pstm.setString(1, id); 
 		    	pstm.setString(2, pwd); 
@@ -144,6 +146,8 @@ NewID(){
 		    	pstm.executeUpdate();
 		    	JOptionPane.showMessageDialog(null, "회원가입이 완료되었습니다","Message",JOptionPane.INFORMATION_MESSAGE);
 				setVisible(false);	
+			}else {
+				JOptionPane.showMessageDialog(null, "ID중복확인을 완료한 아이디로 입력해주세요","Message",JOptionPane.ERROR_MESSAGE);
 			}
 		     } catch (SQLException me1) {
 					System.out.println("sql오류");      
@@ -180,3 +184,4 @@ NewID(){
 }
 	
 }
+
