@@ -83,10 +83,17 @@ public class Manager extends JFrame{
 		        }
 		}
 	 });
+	 JButton abcd= new JButton("뒤로가기");
+	 abcd.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e) {
+				setVisible(false);
+				new Login();	
+		}
+	 });
 	 c.setLayout(new BorderLayout());
 	 q1.add(b1);
-
 	 c.add(q1);
+	 q1.add(abcd);
 	 setSize(300,400);
 	 setVisible(true);
 	 
